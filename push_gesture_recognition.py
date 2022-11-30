@@ -82,11 +82,11 @@ def runner(t,z_axis_values,time_of_action,array_var,state):
                 if abs(z_max-z_min)>50:
                     print(z_max,z_min)
                     t=time.time()
-                    state=1
+                    state=0
                     print("success")
                     raindrop_pattern_generator.raindrop()
                     zero_matrix=[]
-                    useful_functions.list_initializator(zero_matrix)
+                    useful_functions.list_initializator(zero_matrix,16)
                     arduino_sender.sendData(zero_matrix)
                    
                     
