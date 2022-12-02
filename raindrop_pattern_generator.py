@@ -33,7 +33,7 @@ def raindrop():
 
 
     arduino_sender.sendData(m1)
-    time.sleep(0.1)
+    
     # while True:
     #     for ele in mlist:
     #         #print(ele)
@@ -43,7 +43,7 @@ def raindrop():
     j=0
     k=0
     t=time.time()
-    while time.time()<t+10:
+    while time.time()<t+6:
         i+=4
         if i>=30:
             j+=4
@@ -51,5 +51,15 @@ def raindrop():
             k+=4
         m=allocater(matrix,set1,set2,set3,converter(i%200),converter(j%200),converter(k%200),Dict)
         arduino_sender.sendData(m)
-        print(m)
+    while i!=0 or j !=0 or k!=0:
+        if i>=4:
+            i-=4
+        if j>=4:
+            j-=4
+        if k>=4:
+            k-=4
+        m=allocater(matrix,set1,set2,set3,converter(i%200),converter(j%200),converter(k%200),Dict)
+        arduino_sender.sendData(m)
+        #print("success")
+        #print(m)
     
